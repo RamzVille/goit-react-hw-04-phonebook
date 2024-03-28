@@ -31,9 +31,12 @@ export const ContactForm = ({ addContact, contacts }) => {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (existingContact) {
-      alert(`${name} is already in contacts!`);
+      Notify.failure(`${name} is already in your contacts!`, { position: 'center-top' });  
       return;
-    }
+   }
+       else {
+              Notify.success(`${name} is successfully added to your contacts!`, { position: 'center-top' });
+        }
 
     // Add Contact
     addContact({
